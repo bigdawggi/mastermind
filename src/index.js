@@ -11,8 +11,11 @@ console.log('The code is: ', answerCode.retrieve());
 
 let guessCount = 1;
 let foundAnswer = false;
+let previousGuesses = [];
 while (++guessCount < Config.MAX_GUESSES) {
   let guess = new Guess();
+  guess.generate(previousGuesses);
+  previousGuesses.push(guess);
   foundAnswer = guess.compare(answerCode);
   if (foundAnswer) {
     break;

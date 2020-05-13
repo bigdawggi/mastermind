@@ -1,5 +1,6 @@
 import * as Pieces from "./pieces";
 import * as Config from './../config';
+import { Placement } from "./Placement";
 
 export class Code {
   constructor() {
@@ -15,7 +16,10 @@ export class Code {
     let i = 0;
     while (++i <= Config.CODE_LENGTH) {
       let randomKey = _.random(Pieces.availablePieces.length - 1);
-      this.code.push(Pieces.availablePieces[randomKey]);
+      this.code.push(new Placement(
+        i,
+        Pieces.availablePieces[randomKey]
+      ));
     }
   }
 }
