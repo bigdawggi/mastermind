@@ -21,5 +21,6 @@ export class Code {
         Pieces.availablePieces[randomKey]
       ));
     }
+    return this;
   }
 }
