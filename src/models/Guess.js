@@ -1,0 +1,15 @@
+import _ from 'lodash';
+import { Code } from './Code';
+
+
+export class Guess extends Code {
+  constructor() {
+    super();
+    this.generate();
+  }
+
+  compare(answerCode) {
+    return _.isEqual(answerCode.retrieve(), this.retrieve());
+  }
+}
+
