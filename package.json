@@ -8,7 +8,7 @@
   "version": "1.0.0",
   "description": "Little JS expirimentation remaking the mastermind game",
   "author": "Matt Richmond",
-  "license": "GNU v3",
+  "license": "GPL-3.0-only",
   "private": false,
   "scripts": {
     "dev": "yarn run webpack",
