@@ -1,10 +1,10 @@
 export class Board {
-  constructor() {
-    this.answerRow = null;
-    this.guessRows = [];
-  }
+    constructor() {
+        this.answerRow = null;
+        this.guessRows = [];
+    }
 
-  storeGuess(row) {
-    this.guessRows.push(row);
-  }
+    storeGuess(row) {
+        this.guessRows.push(row);
+    }
 }
