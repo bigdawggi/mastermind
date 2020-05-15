@@ -12,7 +12,7 @@ export class Game {
     this.generateAnswer();
 
     let guessesCount = 0;
-    while (++guessesCount <= Config.MAX_GUESSES) {
+    while (guessesCount++ < Config.MAX_GUESSES) {
       this.guess(guessesCount);
       if (this.foundAnswer) {
         break;
