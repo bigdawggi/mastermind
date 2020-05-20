@@ -23,12 +23,5 @@ module.exports = {
         filename: 'app.js',
         path: path.resolve(__dirname, 'public'),
         publicPath: "/public/"
-    },
-    devServer: {
-        contentBase: path.join(__dirname, "public/"),
-        port: 80,
-        publicPath: "https://mastermind.test/",
-        hotOnly: true
-    },
-    plugins: [new webpack.HotModuleReplacementPlugin()]
+    }
 };

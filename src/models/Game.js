@@ -21,6 +21,7 @@ export class Game {
 
         let resultString = this.foundAnswer ? 'WIN' : 'LOSE';
         console.log(`${resultString} after ${guessesCount} iterations`);
+        return this;
     }
 
     generateAnswer() {
