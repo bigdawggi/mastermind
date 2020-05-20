@@ -1,4 +1,5 @@
 public/*.js
+public/*.json
 
 # Logs
 logs
