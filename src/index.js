@@ -1,6 +1,5 @@
-import _ from 'lodash';
-import { Game } from './models/Game';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
 
-
-let game = new Game();
-game.play();
+ReactDOM.render(<App />, document.getElementById("root"));
