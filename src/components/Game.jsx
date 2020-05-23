@@ -1,8 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import { Container } from "@material-ui/core";
+import Typography from '@material-ui/core/Typography';
+import Results from "./Results";
+import { Game as GameModel } from '../models/Game';
+
 
 // const useStyles = makeStyles((theme) => ({
 //     root: {
@@ -21,36 +26,58 @@ export default class Game extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            game: props.game
+            game: new GameModel()
         };
         this.playGame = this.playGame.bind(this);
-
+        this.output = this.output.bind(this);
+        this.reset = this.reset.bind(this);
 
 
     }
+
     playGame() {
         console.log('playing game, dudelies');
-        this.setState({ game: this.state.game.play() });
+        let game = this.state.game;
+        game.isPlaying = true;
+
+        this.setState({ game: game.play() });
     }
-    render() {
-        return (
-            <div>
-                <h2>This is the game</h2>
-                <Grid container spacing={3}>
-                    <Grid item xs={12}>
-                        <Paper >
-                        </Paper>
+
+    reset() {
+        this.setState({ game: new GameModel() });
+    }
+
+    output() {
+        let r = null;
+        if (this.state.game.isPlaying) {
+            return (
+                <Fragment>
+                    <Grid container spacing={3}>
+                        <Grid item xs={4}>1</Grid>
+                        <Grid item xs={4}>2</Grid>
+                        <Grid item xs={4}>3</Grid>
                     </Grid>
-                    <Grid item xs={4}>1</Grid>
-                    <Grid item xs={4}>2</Grid>
-                    <Grid item xs={4}>3</Grid>
-                </Grid>
-                <p> We found the answer, Yes or No?</p>
-                <p><strong>{this.state.game.foundAnswer ? 'Yes' : 'No'}</strong></p>
+                    <Results foundAnswer={this.state.game.foundAnswer}></Results>
+                    <Button onClick={this.reset} variant="contained" color="secondary">Reset</Button>
+                </Fragment>
+            );
+        } else {
+            return (
                 <Button onClick={this.playGame} variant="contained" color="primary">
                     Play the game
                 </Button>
-            </div>
+            );
+        }
+    }
+
+    render() {
+        return (
+            <Container maxwidth="sm">
+                <Typography variant="h1" component="h1" gutterBottom>
+                    Matt's Mastermind
+                </Typography>
+                {this.output()}
+            </Container>
         );
     }
 }

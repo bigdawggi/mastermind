@@ -5,6 +5,7 @@ import { Row } from "./Row";
 export class Game {
     constructor() {
         this.board = new Board();
+        this.isPlaying = false;
         this.foundAnswer = false;
     }
 
