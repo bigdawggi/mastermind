@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Button from '@material-ui/core/Button';
 
 class Game extends Component {
     constructor(props) {
@@ -9,7 +10,7 @@ class Game extends Component {
         this.playGame = this.playGame.bind(this);
     }
     playGame() {
-        console.log('playing game');
+        console.log('playing game, dudelies');
         this.setState({ game: this.state.game.play() });
     }
     render() {
@@ -18,7 +19,9 @@ class Game extends Component {
                 <h2>This is the game</h2>
                 <p> We found the answer, Yes or No?</p>
                 <p><strong>{this.state.game.foundAnswer ? 'Yes' : 'No'}</strong></p>
-                <button onClick={this.playGame}>Play the game</button>
+                <Button onClick={this.playGame} variant="contained" color="primary">
+                    Play the game
+                </Button>
             </div>
         );
     }
