@@ -53,12 +53,20 @@ export default class Game extends Component {
             return (
                 <Fragment>
                     <Grid container spacing={3}>
+
                         <Grid item xs={4}>1</Grid>
                         <Grid item xs={4}>2</Grid>
                         <Grid item xs={4}>3</Grid>
+
+                        <Grid item xs={12}>
+                            <Results foundAnswer={this.state.game.foundAnswer}></Results>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Button onClick={this.reset} variant="contained" color="secondary">Reset</Button>
+                        </Grid>
+
+
                     </Grid>
-                    <Results foundAnswer={this.state.game.foundAnswer}></Results>
-                    <Button onClick={this.reset} variant="contained" color="secondary">Reset</Button>
                 </Fragment>
             );
         } else {
@@ -74,7 +82,7 @@ export default class Game extends Component {
         return (
             <Container maxwidth="sm">
                 <Typography variant="h1" component="h1" gutterBottom>
-                    Matt's Mastermind
+                    Matt&rsquo;s Mastermind
                 </Typography>
                 {this.output()}
             </Container>
