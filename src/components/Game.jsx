@@ -49,15 +49,26 @@ export default class Game extends Component {
 
     output() {
         let r = null;
+
         if (this.state.game.isPlaying) {
             return (
                 <Fragment>
                     <Grid container spacing={3}>
-
-                        <Grid item xs={4}>1</Grid>
-                        <Grid item xs={4}>2</Grid>
-                        <Grid item xs={4}>3</Grid>
-
+                        {this.state.game.board.guessRows.map((row, index) => {
+                            return (
+                                <Grid container item xs={12} key={`row-${index}`}>
+                                    {
+                                        row.code.code.map((placement, idx) => {
+                                            return (
+                                                <Grid item xs={4} key={`placement-${idx}`}>
+                                                    {placement.piece.color}
+                                                </Grid>
+                                            );
+                                        })
+                                    }
+                                </Grid>
+                            );
+                        })}
                         <Grid item xs={12}>
                             <Results foundAnswer={this.state.game.foundAnswer}></Results>
                         </Grid>
