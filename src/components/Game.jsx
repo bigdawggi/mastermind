@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { Container } from "@material-ui/core";
 import Typography from '@material-ui/core/Typography';
 import Results from "./Results";
 import { Game as GameModel } from '../models/Game';
+import Row from "./Row";
 
 
 // const useStyles = makeStyles((theme) => ({
@@ -54,19 +54,14 @@ export default class Game extends Component {
             return (
                 <Fragment>
                     <Grid container spacing={3}>
+                        <Grid item xs={12}>
+                            <Typography variant="h3">
+                                <Row row={this.state.game.board.answerRow}></Row>
+                            </Typography>
+                        </Grid>
                         {this.state.game.board.guessRows.map((row, index) => {
                             return (
-                                <Grid container item xs={12} key={`row-${index}`}>
-                                    {
-                                        row.code.code.map((placement, idx) => {
-                                            return (
-                                                <Grid item xs={4} key={`placement-${idx}`}>
-                                                    {placement.piece.color}
-                                                </Grid>
-                                            );
-                                        })
-                                    }
-                                </Grid>
+                                <Row row={row} key={`row-${index}`}></Row>
                             );
                         })}
                         <Grid item xs={12}>
