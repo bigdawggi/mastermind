@@ -23,8 +23,8 @@ export default class Results extends Component {
     render() {
         return (
             <Fragment>
-                <Paper elevation="3">
-                    <Typography variant="body1" color={this.isSuccess() ? 'success' : 'error'}>
+                <Paper elevation={3}>
+                    <Typography variant="body1" color={this.isSuccess() ? 'primary' : 'error'}>
                         {this.isSuccess() ? 'Yes' : 'No'}
                     </Typography>
                 </Paper>
