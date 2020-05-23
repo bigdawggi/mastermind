@@ -56,12 +56,12 @@ export default class Game extends Component {
                     <Grid container spacing={3}>
                         <Grid item xs={12}>
                             <Typography variant="h3">
-                                <Row row={this.state.game.board.answerRow}></Row>
+                                <Row row={this.state.game.board.answerRow} isAnswerRow={true}></Row>
                             </Typography>
                         </Grid>
                         {this.state.game.board.guessRows.map((row, index) => {
                             return (
-                                <Row row={row} key={`row-${index}`}></Row>
+                                <Row row={row} key={`row-${index}`} isAnswerRow={false}></Row>
                             );
                         })}
                         <Grid item xs={12}>
